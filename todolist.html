@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .user_input {
+            height: fit-content;
+        }
+
+        .list-group-item {
+            margin-top: 4px;
+        }
+
+        ul {
+            margin-top: 5px;
+            border: 1px solid black;
+        }
+
+        li {
+            margin-top: 3px;
+            list-style: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="user_input">
+            <div class="inputs">
+                <input type="search" name="New Task" id="add" placeholder="New Task">
+                <input type="button" value="Add" id="add_btn">
+            </div>
+            <ul id="ul" class="list-group">
+                <li id="li" class="list-group-item">DSA(From tree)</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let btn = document.getElementById('add_btn');
+        btn.addEventListener('click', addtask);
+
+        function addtask(e) {
+            let entry = btn.previousElementSibling.value;
+            if (entry.length > 0) {
+                let input_element = btn.previousElementSibling;
+                let newli = document.createElement('li');
+                newli.textContent = entry;
+                newli.classList.add('list-group-item');
+                let parent = document.getElementById('ul');
+                parent.appendChild(newli);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
